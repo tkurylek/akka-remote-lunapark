@@ -1,4 +1,6 @@
-# Development
+# Akka remote lunapark
+[![Build Status](https://travis-ci.org/tkurylek/akka-remote-lunapark.svg?branch=master)](https://travis-ci.org/tkurylek/akka-remote-lunapark)
+
 ## Compile, test and package
 ```
 mvn clean install

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>pl.kurylek.lunapark</groupId>
+	<artifactId>lunapark</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<modules>
+		<module>lunapark-employees</module>
+		<module>weather-forecast</module>
+		<module>news-report</module>
+		<module>common</module>
+		<module>common-test</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+		<maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
+
+		<akka-actor_2.11.version>2.4.0</akka-actor_2.11.version>
+		<spring.version>4.2.2.RELEASE</spring.version>
+		<lombok.version>1.16.6</lombok.version>
+
+		<junit.version>4.12</junit.version>
+		<assertj-core.version>3.2.0</assertj-core.version>
+		<mockito-core.version>1.9.5</mockito-core.version>
+		<JUnitParams.version>1.0.4</JUnitParams.version>
+		<akka-testkit_2.11.version>2.4.0</akka-testkit_2.11.version>
+		<maven-shade-plugin.version>1.5</maven-shade-plugin.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>${mockito-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.typesafe.akka</groupId>
+				<artifactId>akka-testkit_2.11</artifactId>
+				<version>${akka-testkit_2.11.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.typesafe.akka</groupId>
+				<artifactId>akka-actor_2.11</artifactId>
+				<version>${akka-actor_2.11.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.typesafe.akka</groupId>
+				<artifactId>akka-remote_2.11</artifactId>
+				<version>${akka-actor_2.11.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${assertj-core.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>pl.pragmatists</groupId>
+			<artifactId>JUnitParams</artifactId>
+			<version>${JUnitParams.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
